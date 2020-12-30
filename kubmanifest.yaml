@@ -12,5 +12,5 @@ spec:
         args:
         - /bin/bash
         - -c
-        - /opt/gcSession.sh mysql-service root Philipp1
+        - /opt/gcSession.sh mysquc-service root Philipp1
       restartPolicy: Never
