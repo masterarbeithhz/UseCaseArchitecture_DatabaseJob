@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: jdatabaseuc
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: jdatabaseuc
+        image: JSVAR_DOCKERIMAGE
+        args:
+        - /bin/bash
+        - -c
+        - /opt/gcSession.sh mysql-service root Philipp1
+      restartPolicy: Never
