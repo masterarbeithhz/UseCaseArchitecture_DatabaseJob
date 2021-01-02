@@ -1,7 +1,14 @@
+#Definition Namespace für alle Ressourcen
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: JSVAR_NAMESPACE
+---  
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: jdatabaseuc
+  namespace: JSVAR_NAMESPACE
 spec:
   ttlSecondsAfterFinished: 100
   template:
@@ -12,5 +19,5 @@ spec:
         args:
         - /bin/bash
         - -c
-        - /opt/gcSession.sh mysquc-service root Philipp1
+        - /opt/gcSession.sh JSVAR_UC_DBNAME JSVAR_UC_DBUSER JSVAR_UC_DBPSWD
       restartPolicy: Never

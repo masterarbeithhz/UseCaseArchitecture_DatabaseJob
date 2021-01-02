@@ -15,6 +15,27 @@ pipeline {
 
   stages {
 
+    stage('Checkout groovy') {
+      steps {
+        git url:"https://github.com/masterarbeithhz/CustomerConfiguration.git", branch:'main'
+        
+      }
+    }
+
+    stage("Load config") {
+      steps {
+        script {
+          load "${customer_groovy}.groovy"
+          echo "${env.UC_CUSTOMER}"
+          echo "${env.UC_DBNAME}"
+          echo "${env.UC_DBUSER}"
+          echo "${env.UC_DBDB}"
+          echo "${env.UC_DBPSWD}"
+          echo "${env.UC_DOMAIN}"
+        }
+      }
+    }
+
     stage('Checkout Source') {
       steps {
         git url:"${giturl}", branch:'main'
@@ -44,6 +65,10 @@ pipeline {
           script {
             def data = readFile file: "kubmanifest.yaml"
             data = data.replaceAll("JSVAR_DOCKERIMAGE", "${imagefolder}${imagetag}")
+            data = data.replaceAll("JSVAR_UC_DBNAME", "${env.UC_DBNAME}")
+            data = data.replaceAll("JSVAR_UC_DBUSER", "${env.UC_DBUSER}")
+            data = data.replaceAll("JSVAR_UC_DBPSWD", "${env.UC_DBPSWD}")
+            data = data.replaceAll("JSVAR_NAMESPACE", "${env.C_NAMESPACE}")
             echo data
             writeFile file: "kubmanifest.yaml", text: data
           }
