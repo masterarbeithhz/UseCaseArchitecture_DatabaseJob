@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `readings` (
   `received_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `count_wifi` int(10) unsigned NOT NULL,
   `count_ble` int(10) unsigned NOT NULL
-) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8;
 
  INSERT INTO
   `readings` (
@@ -121,7 +121,7 @@ ALTER TABLE
   `readings`
 MODIFY
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 1;
+  AUTO_INCREMENT = 10;
 
 --#########################################################################################
 CREATE TABLE IF NOT EXISTS `nodeRedResults` (
