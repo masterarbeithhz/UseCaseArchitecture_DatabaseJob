@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `devices` (
   `dev_location_name` varchar(35) NOT NULL,
   `dev_latitude` real NOT NULL,
   `dev_longitude` real NOT NULL
-) ENGINE = InnoDB AUTO_INCREMENT = 9 DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 DEFAULT CHARSET = utf8;
 
 --
 -- Dumping data for table `devices`
@@ -55,21 +55,11 @@ INSERT INTO
     `dev_longitude`
   )
 VALUES
-  (
-    1,
-    '101',
-    'Eberhardstrasse',
-    48.896941,
-    9.1927511
-  ),
-  (2, '202', 'Eberhardstrasse', 48.897328, 9.192156),
-  (3, '303', 'Stadthalle', 00.00000, 0.00000),
-  (4, '404', 'Stadthalle', 48.8944303, 9.190356),
-  (5, '505', 'Freibad', 00.00000, 0.00000),
-  (6, '606', 'Freibad', 00.00000, 0.00000),
-  (7, '707', 'Kirche', 00.00000, 0.00000),
-  (8, '808', 'Kirche', 00.00000, 0.00000);
-
+  (1, '00EF9212EF4B6C2D', 'Ludwigsburg', 48.88519, 9.20561),
+  (2, '00AF47313F3BF73F', 'Eberhardstrasse', 48.88519, 9.20561),
+  (3, '00A4C5A31D5E9F19', 'eberhardstrasse2', 448.89216, 9.17553),
+  (4, '00861AB0751CADBF', 'paxcounter_nr2', 48.8944303, 9.190356),
+  (5, '007B7965C8E2BF60', 'paxcounter_nr1', 48.88519, 9.17553);
 --
 -- Indexes for dumped tables
 --
@@ -91,7 +81,7 @@ ALTER TABLE
   `devices`
 MODIFY
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 9;
+  AUTO_INCREMENT = 6;
 
 --#########################################################################################
 CREATE TABLE IF NOT EXISTS `readings` (
@@ -100,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `readings` (
   `received_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `count_wifi` int(10) unsigned NOT NULL,
   `count_ble` int(10) unsigned NOT NULL
-) ENGINE = InnoDB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8;
 
 INSERT INTO
   `readings` (
@@ -110,15 +100,8 @@ INSERT INTO
     `count_ble`
   )
 VALUES
-  (1, '101', 10, 5),
-  (2, '101', 11, 6),
-  (3, '101', 12, 7),
-  (4, '202', 20, 10),
-  (5, '303', 10, 5),
-  (6, '404', 20, 10),
-  (7, '707', 10, 50),
-  (8, '808', 20, 10),
-  (9, '505', 40, 20);
+  (1, '00EF9212EF4B6C2D', 0, 0),
+  (9, '00EF9212EF4B6C2D', 0, 0);
 
 ALTER TABLE
   `readings`
@@ -129,7 +112,7 @@ ALTER TABLE
   `readings`
 MODIFY
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 10;
+  AUTO_INCREMENT = 3;
 
 --#########################################################################################
 CREATE TABLE IF NOT EXISTS `nodeRedResults` (
