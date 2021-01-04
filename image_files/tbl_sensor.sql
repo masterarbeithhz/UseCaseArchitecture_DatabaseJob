@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `readings` (
   `count_ble` int(10) unsigned NOT NULL
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
 
-/* INSERT INTO
+ INSERT INTO
   `readings` (
     `id`,
     `dev_id`,
@@ -110,7 +110,7 @@ VALUES
   (6, '404', 20, 10),
   (7, '707', 10, 50),
   (8, '808', 20, 10),
-  (9, '505', 40, 20); */
+  (9, '505', 40, 20); 
 
 ALTER TABLE
   `readings`
